@@ -1,5 +1,15 @@
-import React from 'react'
+import Link from 'next/link'
+import * as S from './styles'
 
-export default function LinkWrapper() {
-  return <div>index</div>
+type LinkWrapperProps = {
+  href: string
+  children: React.ReactNode
 }
+
+const LinkWrapper = ({ href, children }: LinkWrapperProps) => (
+  <S.Wrapper>
+    <Link href={href}>{children}</Link>
+  </S.Wrapper>
+)
+
+export default LinkWrapper
