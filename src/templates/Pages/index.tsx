@@ -1,19 +1,23 @@
-import * as S from './styles'
-import { CloseOutline } from '@styled-icons/evaicons-outline'
+import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import LinkWrapper from 'components/LinkWrapper'
 
-const PageTemplate = () => (
+import * as S from './styles'
+
+export type PageTemplateProps = {
+  heading: string
+  body: string
+}
+
+const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <S.Content>
     <LinkWrapper href="/">
-      <CloseOutline size={32}></CloseOutline>
+      <CloseOutline size={32} />
     </LinkWrapper>
+
+    <S.Heading>{heading}</S.Heading>
+
     <S.Body>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-        voluptatem corrupti est iusto accusantium excepturi deleniti a libero
-        quaerat quae reiciendis dolorum ipsam mollitia error debitis nisi,
-        dolorem quasi reprehenderit.
-      </p>
+      <div dangerouslySetInnerHTML={{ __html: body }} />
     </S.Body>
   </S.Content>
 )
