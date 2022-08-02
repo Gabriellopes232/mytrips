@@ -1,8 +1,8 @@
 import { GetStaticProps } from 'next'
 import client from 'graphql/client'
-import { GET_PAGE_BY_SLUG, GET_PLACES } from 'graphql/queries'
+import { GET_PLACES, GET_PLACE_BY_SLUG } from 'graphql/queries'
 import { useRouter } from 'next/dist/client/router'
-import { GetPlaceBySlugQuery, GetPlacesQuery } from 'generated/graphql'
+import { GetPlaceBySlugQuery, GetPlacesQuery } from 'graphql/generated/graphql'
 import PlacesTemplate, { PlacesTemplateProps } from 'templates/Places'
 
 export default function Page({ place }: PlacesTemplateProps) {
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { place } = await client.request<GetPlaceBySlugQuery>(
-    GET_PAGE_BY_SLUG,
+    GET_PLACE_BY_SLUG,
     {
       slug: `${params?.slug}`
     }
