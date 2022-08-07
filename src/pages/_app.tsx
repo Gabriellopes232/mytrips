@@ -1,9 +1,8 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNprogress from 'nextjs-progressbar'
-
 import { DefaultSeo } from 'next-seo'
-import SEO from '../../next-seo.config'
+import SEO from '../../nest-seo.config'
 import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {

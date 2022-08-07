@@ -33,7 +33,6 @@ const CustomTileLayer = () => {
   )
 }
 
-
 export default function Map({ places }: MapProps) {
   const router = useRouter()
   return (
