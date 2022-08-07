@@ -1,6 +1,9 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import NextNprogress from 'nextjs-progressbar'
 
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
 import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {
@@ -23,7 +26,14 @@ function App({ Component, pageProps }: AppProps) {
           content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
         />
       </Head>
+      <DefaultSeo {...SEO} />
       <GlobalStyles />
+      <NextNprogress
+        color="#f231a5"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+      />
       <Component {...pageProps} />
     </>
   )
