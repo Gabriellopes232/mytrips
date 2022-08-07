@@ -20,6 +20,7 @@ export type Scalars = {
   Int: number
   Float: number
   Date: any
+  date:any
   DateTime: any
   Hex: any
   Json: any

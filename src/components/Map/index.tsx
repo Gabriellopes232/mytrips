@@ -43,7 +43,6 @@ export default function Map({ places }: MapProps) {
       style={{ height: '100%', width: '100%' }}
     >
       <CustomTileLayer />
-
       {places?.map(({ id, slug, name, location }) => {
         const { latitude, longitude } = location
         return (
