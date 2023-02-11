@@ -1,9 +1,9 @@
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import NextNprogress from 'nextjs-progressbar'
-import { DefaultSeo } from 'next-seo'
-import SEO from '../../nest-seo.config'
-import GlobalStyles from 'styles/global'
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+import NextNprogress from 'nextjs-progressbar';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../../nest-seo.config';
+import GlobalStyles from 'styles/global';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -35,7 +35,7 @@ function App({ Component, pageProps }: AppProps) {
       />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

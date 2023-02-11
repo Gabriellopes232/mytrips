@@ -2,9 +2,15 @@ import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -73,18 +79,15 @@ export type Asset = Node & {
   width?: Maybe<Scalars['Float']>;
 };
 
-
 /** Asset system model */
 export type AssetCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetDocumentInStagesArgs = {
@@ -92,7 +95,6 @@ export type AssetDocumentInStagesArgs = {
   inheritLocale?: Scalars['Boolean'];
   stages?: Array<Stage>;
 };
-
 
 /** Asset system model */
 export type AssetGalleryPlaceArgs = {
@@ -106,7 +108,6 @@ export type AssetGalleryPlaceArgs = {
   where?: InputMaybe<PlaceWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetHistoryArgs = {
   limit?: Scalars['Int'];
@@ -114,25 +115,21 @@ export type AssetHistoryArgs = {
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
 };
 
-
 /** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetScheduledInArgs = {
@@ -145,18 +142,15 @@ export type AssetScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetUrlArgs = {
@@ -344,7 +338,7 @@ export enum AssetOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
+  WidthDesc = 'width_DESC',
 }
 
 /** Transformations for Assets */
@@ -724,7 +718,7 @@ export enum DocumentFileTypes {
   Txt = 'txt',
   Webp = 'webp',
   Xls = 'xls',
-  Xlsx = 'xlsx'
+  Xlsx = 'xlsx',
 }
 
 export type DocumentOutputInput = {
@@ -780,7 +774,7 @@ export enum ImageFit {
   /** Resizes the image to fit within the parameters, but as opposed to 'fit:clip' will not scale the image if the image is smaller than the output size. */
   Max = 'max',
   /** Resizes the image to fit the specified parameters exactly by scaling the image to the desired size. The aspect ratio of the image is not respected and the image can be distorted using this method. */
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export type ImageResizeInput = {
@@ -801,7 +795,7 @@ export type ImageTransformationInput = {
 /** Locale system enumeration */
 export enum Locale {
   /** System locale */
-  En = 'en'
+  En = 'en',
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -811,7 +805,6 @@ export type Location = {
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
 };
-
 
 /** Representing a geolocation point with latitude and longitude */
 export type LocationDistanceArgs = {
@@ -971,36 +964,29 @@ export type Mutation = {
   upsertPlace?: Maybe<Place>;
 };
 
-
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
 };
-
 
 export type MutationCreatePageArgs = {
   data: PageCreateInput;
 };
 
-
 export type MutationCreatePlaceArgs = {
   data: PlaceCreateInput;
 };
-
 
 export type MutationCreateScheduledReleaseArgs = {
   data: ScheduledReleaseCreateInput;
 };
 
-
 export type MutationDeleteAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationDeleteManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1011,11 +997,9 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPagesArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1026,11 +1010,9 @@ export type MutationDeleteManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPlacesArgs = {
   where?: InputMaybe<PlaceManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPlacesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1041,26 +1023,21 @@ export type MutationDeleteManyPlacesConnectionArgs = {
   where?: InputMaybe<PlaceManyWhereInput>;
 };
 
-
 export type MutationDeletePageArgs = {
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationDeletePlaceArgs = {
   where: PlaceWhereUniqueInput;
 };
 
-
 export type MutationDeleteScheduledOperationArgs = {
   where: ScheduledOperationWhereUniqueInput;
 };
 
-
 export type MutationDeleteScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type MutationPublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1070,7 +1047,6 @@ export type MutationPublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishManyAssetsArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -1078,7 +1054,6 @@ export type MutationPublishManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationPublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1094,12 +1069,10 @@ export type MutationPublishManyAssetsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishManyPagesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationPublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1112,12 +1085,10 @@ export type MutationPublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationPublishManyPlacesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<PlaceManyWhereInput>;
 };
-
 
 export type MutationPublishManyPlacesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1130,18 +1101,15 @@ export type MutationPublishManyPlacesConnectionArgs = {
   where?: InputMaybe<PlaceManyWhereInput>;
 };
 
-
 export type MutationPublishPageArgs = {
   to?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationPublishPlaceArgs = {
   to?: Array<Stage>;
   where: PlaceWhereUniqueInput;
 };
-
 
 export type MutationSchedulePublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1153,7 +1121,6 @@ export type MutationSchedulePublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationSchedulePublishPageArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
@@ -1161,14 +1128,12 @@ export type MutationSchedulePublishPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationSchedulePublishPlaceArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: PlaceWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishAssetArgs = {
   from?: Array<Stage>;
@@ -1179,14 +1144,12 @@ export type MutationScheduleUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishPageArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishPlaceArgs = {
   from?: Array<Stage>;
@@ -1195,7 +1158,6 @@ export type MutationScheduleUnpublishPlaceArgs = {
   where: PlaceWhereUniqueInput;
 };
 
-
 export type MutationUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -1203,14 +1165,12 @@ export type MutationUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUnpublishManyAssetsArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1225,12 +1185,10 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPagesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1243,12 +1201,10 @@ export type MutationUnpublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPlacesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<PlaceManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPlacesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1261,30 +1217,25 @@ export type MutationUnpublishManyPlacesConnectionArgs = {
   where?: InputMaybe<PlaceManyWhereInput>;
 };
 
-
 export type MutationUnpublishPageArgs = {
   from?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUnpublishPlaceArgs = {
   from?: Array<Stage>;
   where: PlaceWhereUniqueInput;
 };
 
-
 export type MutationUpdateAssetArgs = {
   data: AssetUpdateInput;
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUpdateManyAssetsArgs = {
   data: AssetUpdateManyInput;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1296,12 +1247,10 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPagesArgs = {
   data: PageUpdateManyInput;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1313,12 +1262,10 @@ export type MutationUpdateManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPlacesArgs = {
   data: PlaceUpdateManyInput;
   where?: InputMaybe<PlaceManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPlacesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1330,36 +1277,30 @@ export type MutationUpdateManyPlacesConnectionArgs = {
   where?: InputMaybe<PlaceManyWhereInput>;
 };
 
-
 export type MutationUpdatePageArgs = {
   data: PageUpdateInput;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUpdatePlaceArgs = {
   data: PlaceUpdateInput;
   where: PlaceWhereUniqueInput;
 };
 
-
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUpsertPageArgs = {
   upsert: PageUpsertInput;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUpsertPlaceArgs = {
   upsert: PlaceUpsertInput;
@@ -1402,11 +1343,9 @@ export type Page = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PageCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -1414,18 +1353,15 @@ export type PageDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type PageHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PagePublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -1436,7 +1372,6 @@ export type PageScheduledInArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
-
 
 export type PageUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1637,7 +1572,7 @@ export enum PageOrderByInput {
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PageUpdateInput = {
@@ -1867,18 +1802,15 @@ export type Place = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PlaceCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PlaceDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
   inheritLocale?: Scalars['Boolean'];
   stages?: Array<Stage>;
 };
-
 
 export type PlaceGalleryArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -1891,18 +1823,15 @@ export type PlaceGalleryArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type PlaceHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PlacePublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PlaceScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -1913,7 +1842,6 @@ export type PlaceScheduledInArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
-
 
 export type PlaceUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2104,7 +2032,7 @@ export enum PlaceOrderByInput {
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PlaceUpdateInput = {
@@ -2364,18 +2292,15 @@ export type Query = {
   usersConnection: UserConnection;
 };
 
-
 export type QueryAssetArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AssetWhereUniqueInput;
 };
 
-
 export type QueryAssetVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAssetsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2389,7 +2314,6 @@ export type QueryAssetsArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2402,13 +2326,11 @@ export type QueryAssetsConnectionArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryNodeArgs = {
   id: Scalars['ID'];
   locales?: Array<Locale>;
   stage?: Stage;
 };
-
 
 export type QueryPageArgs = {
   locales?: Array<Locale>;
@@ -2416,11 +2338,9 @@ export type QueryPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type QueryPageVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPagesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2434,7 +2354,6 @@ export type QueryPagesArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPagesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2447,18 +2366,15 @@ export type QueryPagesConnectionArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPlaceArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: PlaceWhereUniqueInput;
 };
 
-
 export type QueryPlaceVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPlacesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2472,7 +2388,6 @@ export type QueryPlacesArgs = {
   where?: InputMaybe<PlaceWhereInput>;
 };
 
-
 export type QueryPlacesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2485,13 +2400,11 @@ export type QueryPlacesConnectionArgs = {
   where?: InputMaybe<PlaceWhereInput>;
 };
 
-
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type QueryScheduledOperationsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2505,7 +2418,6 @@ export type QueryScheduledOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledOperationsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2518,13 +2430,11 @@ export type QueryScheduledOperationsConnectionArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledReleaseArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type QueryScheduledReleasesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2538,7 +2448,6 @@ export type QueryScheduledReleasesArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryScheduledReleasesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2551,13 +2460,11 @@ export type QueryScheduledReleasesConnectionArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryUserArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: UserWhereUniqueInput;
 };
-
 
 export type QueryUsersArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2570,7 +2477,6 @@ export type QueryUsersArgs = {
   stage?: Stage;
   where?: InputMaybe<UserWhereInput>;
 };
-
 
 export type QueryUsersConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2648,7 +2554,6 @@ export type ScheduledOperation = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationAffectedDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2659,12 +2564,10 @@ export type ScheduledOperationAffectedDocumentsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationDocumentInStagesArgs = {
@@ -2673,18 +2576,15 @@ export type ScheduledOperationDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationReleaseArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationUpdatedByArgs = {
@@ -2868,7 +2768,7 @@ export enum ScheduledOperationOrderByInput {
   StatusAsc = 'status_ASC',
   StatusDesc = 'status_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Operation Status */
@@ -2877,7 +2777,7 @@ export enum ScheduledOperationStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledOperationUpdateManyInlineInput = {
@@ -3065,12 +2965,10 @@ export type ScheduledRelease = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseDocumentInStagesArgs = {
@@ -3078,7 +2976,6 @@ export type ScheduledReleaseDocumentInStagesArgs = {
   inheritLocale?: Scalars['Boolean'];
   stages?: Array<Stage>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseOperationsArgs = {
@@ -3092,12 +2989,10 @@ export type ScheduledReleaseOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleasePublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseUpdatedByArgs = {
@@ -3343,7 +3238,7 @@ export enum ScheduledReleaseOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Release Status */
@@ -3351,7 +3246,7 @@ export enum ScheduledReleaseStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledReleaseUpdateInput = {
@@ -3607,13 +3502,13 @@ export enum Stage {
   /** The Draft is the default stage for all your content. */
   Draft = 'DRAFT',
   /** The Published stage is where you can publish your content to. */
-  Published = 'PUBLISHED'
+  Published = 'PUBLISHED',
 }
 
 export enum SystemDateTimeFieldVariation {
   Base = 'BASE',
   Combined = 'COMBINED',
-  Localization = 'LOCALIZATION'
+  Localization = 'LOCALIZATION',
 }
 
 export type UnpublishLocaleInput = {
@@ -3647,7 +3542,6 @@ export type User = Node & {
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** User system model */
 export type UserDocumentInStagesArgs = {
@@ -3697,7 +3591,7 @@ export enum UserKind {
   Member = 'MEMBER',
   Pat = 'PAT',
   Public = 'PUBLIC',
-  Webhook = 'WEBHOOK'
+  Webhook = 'WEBHOOK',
 }
 
 /** Identifies documents */
@@ -3840,7 +3734,7 @@ export enum UserOrderByInput {
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type UserUpdateManyInlineInput = {
@@ -4027,7 +3921,7 @@ export enum _FilterKind {
   RelationalSingle = 'relational_single',
   RelationalSome = 'relational_some',
   Search = 'search',
-  StartsWith = 'starts_with'
+  StartsWith = 'starts_with',
 }
 
 export enum _MutationInputFieldKind {
@@ -4037,7 +3931,7 @@ export enum _MutationInputFieldKind {
   RichTextWithEmbeds = 'richTextWithEmbeds',
   Scalar = 'scalar',
   Union = 'union',
-  Virtual = 'virtual'
+  Virtual = 'virtual',
 }
 
 export enum _MutationKind {
@@ -4052,74 +3946,119 @@ export enum _MutationKind {
   UnpublishMany = 'unpublishMany',
   Update = 'update',
   UpdateMany = 'updateMany',
-  Upsert = 'upsert'
+  Upsert = 'upsert',
 }
 
 export enum _OrderDirection {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export enum _RelationInputCardinality {
   Many = 'many',
-  One = 'one'
+  One = 'one',
 }
 
 export enum _RelationInputKind {
   Create = 'create',
-  Update = 'update'
+  Update = 'update',
 }
 
 export enum _RelationKind {
   Regular = 'regular',
-  Union = 'union'
+  Union = 'union',
 }
 
 export enum _SystemDateTimeFieldVariation {
   Base = 'base',
   Combined = 'combined',
-  Localization = 'localization'
+  Localization = 'localization',
 }
 
 export type GetPagesQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
 }>;
 
-
-export type GetPagesQuery = { __typename?: 'Query', pages: Array<{ __typename?: 'Page', id: string, heading: string, slug: string, body?: { __typename?: 'RichText', html: string } | null }> };
+export type GetPagesQuery = {
+  __typename?: 'Query';
+  pages: Array<{
+    __typename?: 'Page';
+    id: string;
+    heading: string;
+    slug: string;
+    body?: { __typename?: 'RichText'; html: string } | null;
+  }>;
+};
 
 export type GetPageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
+export type GetPageBySlugQuery = {
+  __typename?: 'Query';
+  page?: {
+    __typename?: 'Page';
+    id: string;
+    slug: string;
+    heading: string;
+    body?: { __typename?: 'RichText'; html: string } | null;
+  } | null;
+};
 
-export type GetPageBySlugQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, slug: string, heading: string, body?: { __typename?: 'RichText', html: string } | null } | null };
+export type GetPlacesQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetPlacesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetPlacesQuery = { __typename?: 'Query', places: Array<{ __typename?: 'Place', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null, width?: number | null }> }> };
+export type GetPlacesQuery = {
+  __typename?: 'Query';
+  places: Array<{
+    __typename?: 'Place';
+    id: string;
+    slug: string;
+    name: string;
+    location: { __typename?: 'Location'; latitude: number; longitude: number };
+    description?: { __typename?: 'RichText'; html: string } | null;
+    gallery: Array<{
+      __typename?: 'Asset';
+      url: string;
+      height?: number | null;
+      width?: number | null;
+    }>;
+  }>;
+};
 
 export type GetPlaceBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
-
-export type GetPlaceBySlugQuery = { __typename?: 'Query', place?: { __typename?: 'Place', id: string, slug: string, name: string, location: { __typename?: 'Location', latitude: number, longitude: number }, description?: { __typename?: 'RichText', html: string } | null, gallery: Array<{ __typename?: 'Asset', url: string, height?: number | null, width?: number | null }> } | null };
-
+export type GetPlaceBySlugQuery = {
+  __typename?: 'Query';
+  place?: {
+    __typename?: 'Place';
+    id: string;
+    slug: string;
+    name: string;
+    location: { __typename?: 'Location'; latitude: number; longitude: number };
+    description?: { __typename?: 'RichText'; html: string } | null;
+    gallery: Array<{
+      __typename?: 'Asset';
+      url: string;
+      height?: number | null;
+      width?: number | null;
+    }>;
+  } | null;
+};
 
 export const GetPagesDocument = gql`
-    query getPages($first: Int) {
-  pages(first: $first) {
-    id
-    heading
-    slug
-    body {
-      html
+  query getPages($first: Int) {
+    pages(first: $first) {
+      id
+      heading
+      slug
+      body {
+        html
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPagesQuery__
@@ -4137,29 +4076,47 @@ export const GetPagesDocument = gql`
  *   },
  * });
  */
-export function useGetPagesQuery(baseOptions?: Apollo.QueryHookOptions<GetPagesQuery, GetPagesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPagesQuery, GetPagesQueryVariables>(GetPagesDocument, options);
-      }
-export function useGetPagesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPagesQuery, GetPagesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPagesQuery, GetPagesQueryVariables>(GetPagesDocument, options);
-        }
+export function useGetPagesQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetPagesQuery, GetPagesQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPagesQuery, GetPagesQueryVariables>(
+    GetPagesDocument,
+    options
+  );
+}
+export function useGetPagesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPagesQuery,
+    GetPagesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPagesQuery, GetPagesQueryVariables>(
+    GetPagesDocument,
+    options
+  );
+}
 export type GetPagesQueryHookResult = ReturnType<typeof useGetPagesQuery>;
-export type GetPagesLazyQueryHookResult = ReturnType<typeof useGetPagesLazyQuery>;
-export type GetPagesQueryResult = Apollo.QueryResult<GetPagesQuery, GetPagesQueryVariables>;
+export type GetPagesLazyQueryHookResult = ReturnType<
+  typeof useGetPagesLazyQuery
+>;
+export type GetPagesQueryResult = Apollo.QueryResult<
+  GetPagesQuery,
+  GetPagesQueryVariables
+>;
 export const GetPageBySlugDocument = gql`
-    query getPageBySlug($slug: String!) {
-  page(where: {slug: $slug}) {
-    id
-    slug
-    heading
-    body {
-      html
+  query getPageBySlug($slug: String!) {
+    page(where: { slug: $slug }) {
+      id
+      slug
+      heading
+      body {
+        html
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPageBySlugQuery__
@@ -4177,38 +4134,61 @@ export const GetPageBySlugDocument = gql`
  *   },
  * });
  */
-export function useGetPageBySlugQuery(baseOptions: Apollo.QueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-      }
-export function useGetPageBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPageBySlugQuery, GetPageBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(GetPageBySlugDocument, options);
-        }
-export type GetPageBySlugQueryHookResult = ReturnType<typeof useGetPageBySlugQuery>;
-export type GetPageBySlugLazyQueryHookResult = ReturnType<typeof useGetPageBySlugLazyQuery>;
-export type GetPageBySlugQueryResult = Apollo.QueryResult<GetPageBySlugQuery, GetPageBySlugQueryVariables>;
+export function useGetPageBySlugQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPageBySlugQuery,
+    GetPageBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(
+    GetPageBySlugDocument,
+    options
+  );
+}
+export function useGetPageBySlugLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPageBySlugQuery,
+    GetPageBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>(
+    GetPageBySlugDocument,
+    options
+  );
+}
+export type GetPageBySlugQueryHookResult = ReturnType<
+  typeof useGetPageBySlugQuery
+>;
+export type GetPageBySlugLazyQueryHookResult = ReturnType<
+  typeof useGetPageBySlugLazyQuery
+>;
+export type GetPageBySlugQueryResult = Apollo.QueryResult<
+  GetPageBySlugQuery,
+  GetPageBySlugQueryVariables
+>;
 export const GetPlacesDocument = gql`
-    query getPlaces {
-  places {
-    id
-    slug
-    name
-    location {
-      latitude
-      longitude
-    }
-    description {
-      html
-    }
-    gallery {
-      url
-      height
-      width
+  query getPlaces {
+    places {
+      id
+      slug
+      name
+      location {
+        latitude
+        longitude
+      }
+      description {
+        html
+      }
+      gallery {
+        url
+        height
+        width
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPlacesQuery__
@@ -4225,38 +4205,56 @@ export const GetPlacesDocument = gql`
  *   },
  * });
  */
-export function useGetPlacesQuery(baseOptions?: Apollo.QueryHookOptions<GetPlacesQuery, GetPlacesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPlacesQuery, GetPlacesQueryVariables>(GetPlacesDocument, options);
-      }
-export function useGetPlacesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlacesQuery, GetPlacesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPlacesQuery, GetPlacesQueryVariables>(GetPlacesDocument, options);
-        }
+export function useGetPlacesQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetPlacesQuery, GetPlacesQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPlacesQuery, GetPlacesQueryVariables>(
+    GetPlacesDocument,
+    options
+  );
+}
+export function useGetPlacesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPlacesQuery,
+    GetPlacesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPlacesQuery, GetPlacesQueryVariables>(
+    GetPlacesDocument,
+    options
+  );
+}
 export type GetPlacesQueryHookResult = ReturnType<typeof useGetPlacesQuery>;
-export type GetPlacesLazyQueryHookResult = ReturnType<typeof useGetPlacesLazyQuery>;
-export type GetPlacesQueryResult = Apollo.QueryResult<GetPlacesQuery, GetPlacesQueryVariables>;
+export type GetPlacesLazyQueryHookResult = ReturnType<
+  typeof useGetPlacesLazyQuery
+>;
+export type GetPlacesQueryResult = Apollo.QueryResult<
+  GetPlacesQuery,
+  GetPlacesQueryVariables
+>;
 export const GetPlaceBySlugDocument = gql`
-    query getPlaceBySlug($slug: String!) {
-  place(where: {slug: $slug}) {
-    id
-    slug
-    name
-    location {
-      latitude
-      longitude
-    }
-    description {
-      html
-    }
-    gallery {
-      url
-      height
-      width
+  query getPlaceBySlug($slug: String!) {
+    place(where: { slug: $slug }) {
+      id
+      slug
+      name
+      location {
+        latitude
+        longitude
+      }
+      description {
+        html
+      }
+      gallery {
+        url
+        height
+        width
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetPlaceBySlugQuery__
@@ -4274,14 +4272,37 @@ export const GetPlaceBySlugDocument = gql`
  *   },
  * });
  */
-export function useGetPlaceBySlugQuery(baseOptions: Apollo.QueryHookOptions<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>(GetPlaceBySlugDocument, options);
-      }
-export function useGetPlaceBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>(GetPlaceBySlugDocument, options);
-        }
-export type GetPlaceBySlugQueryHookResult = ReturnType<typeof useGetPlaceBySlugQuery>;
-export type GetPlaceBySlugLazyQueryHookResult = ReturnType<typeof useGetPlaceBySlugLazyQuery>;
-export type GetPlaceBySlugQueryResult = Apollo.QueryResult<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>;
+export function useGetPlaceBySlugQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPlaceBySlugQuery,
+    GetPlaceBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>(
+    GetPlaceBySlugDocument,
+    options
+  );
+}
+export function useGetPlaceBySlugLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPlaceBySlugQuery,
+    GetPlaceBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetPlaceBySlugQuery, GetPlaceBySlugQueryVariables>(
+    GetPlaceBySlugDocument,
+    options
+  );
+}
+export type GetPlaceBySlugQueryHookResult = ReturnType<
+  typeof useGetPlaceBySlugQuery
+>;
+export type GetPlaceBySlugLazyQueryHookResult = ReturnType<
+  typeof useGetPlaceBySlugLazyQuery
+>;
+export type GetPlaceBySlugQueryResult = Apollo.QueryResult<
+  GetPlaceBySlugQuery,
+  GetPlaceBySlugQueryVariables
+>;

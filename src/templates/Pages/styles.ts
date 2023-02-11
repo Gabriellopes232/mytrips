@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Content = styled.section`
   text-align: center;
@@ -9,15 +9,15 @@ export const Content = styled.section`
   height: 100vh;
   max-width: var(--container);
   margin: auto;
-`
+`;
 export const Heading = styled.h1`
   font-size: var(--large);
   margin-bottom: var(--large);
-`
+`;
 
 export const Body = styled.div`
   p {
     font-size: var(--medium);
     line-height: var(--medium);
   }
-`
+`;

@@ -1,12 +1,12 @@
-import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
-import LinkWrapper from 'components/LinkWrapper'
+import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline';
+import LinkWrapper from 'components/LinkWrapper';
 
-import * as S from './styles'
+import * as S from './styles';
 
 export type PageTemplateProps = {
-  heading: string
-  body: string
-}
+  heading: string;
+  body: string;
+};
 
 const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <S.Content>
@@ -20,6 +20,6 @@ const PageTemplate = ({ heading, body }: PageTemplateProps) => (
       <div dangerouslySetInnerHTML={{ __html: body }} />
     </S.Body>
   </S.Content>
-)
+);
 
-export default PageTemplate
+export default PageTemplate;

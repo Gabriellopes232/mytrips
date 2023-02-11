@@ -1,16 +1,16 @@
-import { render, screen } from '@testing-library/react'
-import Map from '.'
+import { render, screen } from '@testing-library/react';
+import Map from '.';
 
 describe('<Map/>', () => {
   it('Should render without any marker', () => {
-    render(<Map />)
+    render(<Map />);
 
     expect(
       screen.getByRole('link', {
-        name: /a js library for interactive maps/i
+        name: /a js library for interactive maps/i,
       })
-    ).toBeInTheDocument()
-  })
+    ).toBeInTheDocument();
+  });
   it('should render with the marker in correct place', () => {
     const place = {
       id: '1',
@@ -18,21 +18,21 @@ describe('<Map/>', () => {
       slug: 'petropolis',
       location: {
         latitude: 0,
-        longitude: 0
-      }
-    }
+        longitude: 0,
+      },
+    };
     const placetwo = {
       id: '2',
       name: 'Reykjavik',
       slug: 'reykjavik',
       location: {
         latitude: 129,
-        longitude: -50
-      }
-    }
-    render(<Map places={[place, placetwo]} />)
+        longitude: -50,
+      },
+    };
+    render(<Map places={[place, placetwo]} />);
 
-    expect(screen.getByTitle(/petrópolis/i)).toBeInTheDocument()
-    expect(screen.getByTitle(/reykjavik/i)).toBeInTheDocument()
-  })
-})
+    expect(screen.getByTitle(/petrópolis/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/reykjavik/i)).toBeInTheDocument();
+  });
+});

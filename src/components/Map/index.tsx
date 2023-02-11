@@ -1,23 +1,23 @@
-import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { useRouter } from 'next/router';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 type Place = {
-  id: string
-  name: string
-  slug: string
+  id: string;
+  name: string;
+  slug: string;
   location: {
-    latitude: number
-    longitude: number
-  }
-}
+    latitude: number;
+    longitude: number;
+  };
+};
 
 export type MapProps = {
-  places?: Place[]
-}
+  places?: Place[];
+};
 
-const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
-const MAPBOX_USERID = process.env.NEXT_PUBLIC_MAPBOX_USERID
-const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID
+const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
+const MAPBOX_USERID = process.env.NEXT_PUBLIC_MAPBOX_USERID;
+const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID;
 
 const CustomTileLayer = () => {
   return MAPBOX_API_KEY ? (
@@ -30,11 +30,11 @@ const CustomTileLayer = () => {
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-  )
-}
+  );
+};
 
 export default function Map({ places }: MapProps) {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <MapContainer
       center={[0, 0]}
@@ -43,7 +43,7 @@ export default function Map({ places }: MapProps) {
     >
       <CustomTileLayer />
       {places?.map(({ id, slug, name, location }) => {
-        const { latitude, longitude } = location
+        const { latitude, longitude } = location;
         return (
           <Marker
             key={`place-${id}`}
@@ -51,12 +51,12 @@ export default function Map({ places }: MapProps) {
             title={name}
             eventHandlers={{
               click: () => {
-                router.push(`/place/${slug}`)
-              }
+                router.push(`/place/${slug}`);
+              },
             }}
           />
-        )
+        );
       })}
     </MapContainer>
-  )
+  );
 }

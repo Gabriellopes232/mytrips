@@ -10,6 +10,8 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
+    "style:check": "prettier --check 'src/**/*.ts'",
+    "style:fix": "prettier --write 'src/**/*.ts' 'src/**/*.tsx'",
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

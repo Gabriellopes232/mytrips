@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from 'graphql-request';
 
 export const GET_PAGES = gql`
   query getPages($first: Int) {
@@ -11,7 +11,7 @@ export const GET_PAGES = gql`
       }
     }
   }
-`
+`;
 export const GET_PAGE_BY_SLUG = gql`
   query getPageBySlug($slug: String!) {
     page(where: { slug: $slug }) {
@@ -23,7 +23,7 @@ export const GET_PAGE_BY_SLUG = gql`
       }
     }
   }
-`
+`;
 export const GET_PLACES = gql`
   query getPlaces {
     places {
@@ -44,7 +44,7 @@ export const GET_PLACES = gql`
       }
     }
   }
-`
+`;
 export const GET_PLACE_BY_SLUG = gql`
   query getPlaceBySlug($slug: String!) {
     place(where: { slug: $slug }) {
@@ -65,4 +65,4 @@ export const GET_PLACE_BY_SLUG = gql`
       }
     }
   }
-`
+`;
